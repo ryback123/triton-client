@@ -42,7 +42,7 @@ def _get_error(response):
         try:
             body = response.read().decode("utf-8")
             error_response = (
-                json.loads(body)
+                {"error": str(body)}
                 if len(body)
                 else {"error": "client received an empty response from the server."}
             )
